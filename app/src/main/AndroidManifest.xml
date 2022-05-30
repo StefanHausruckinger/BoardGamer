@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BoardGamer">
         <activity
+            android:name=".test"
+            android:exported="false" />
+        <activity
             android:name=".Auth.ForgotPassword"
             android:exported="false" />
         <activity

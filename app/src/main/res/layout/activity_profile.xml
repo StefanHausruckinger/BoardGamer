@@ -13,6 +13,8 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="15dp"
         android:layout_marginTop="20dp"
+        android:text="Welcome!"
+        android:textStyle="bold"
         android:textSize="20sp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -21,40 +23,39 @@
         android:id="@+id/emailAddressTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="52dp"
         android:text="Email Address:"
-        android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@+id/greeting"
-        app:layout_constraintLeft_toLeftOf="@+id/greeting"
-        android:layout_marginTop="20dp"
         android:textSize="20sp"
-        />
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="@+id/greeting"
+        app:layout_constraintTop_toTopOf="@+id/greeting" />
 
     <TextView
-        android:id="@+id/fullNameTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Full Name:"
-        android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@+id/emailAddressTitle"
-        app:layout_constraintLeft_toLeftOf="@+id/emailAddressTitle"
-        android:layout_marginTop="20dp"
-        android:textSize="20sp"
-        />
+      android:id="@+id/fullNameTitle"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="Full Name:"
+      android:textStyle="bold"
+      app:layout_constraintTop_toBottomOf="@+id/emailAddressTitle"
+      app:layout_constraintLeft_toLeftOf="@+id/emailAddressTitle"
+      android:layout_marginTop="20dp"
+      android:textSize="20sp"
+      />
 
-    <Button
-        android:id="@+id/signOut"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Logout"
-        android:textStyle="bold"
-        android:backgroundTint="#0ED6B9"
-        android:textColor="#ffffff"
-        android:textSize="20sp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        />
+  <Button
+      android:id="@+id/signOut"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="Logout"
+      android:textStyle="bold"
+      android:backgroundTint="#0ED6B9"
+      android:textColor="#ffffff"
+      android:textSize="20sp"
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintRight_toRightOf="parent"
+      app:layout_constraintLeft_toLeftOf="parent"
+      app:layout_constraintBottom_toBottomOf="parent"
+      />
 
 
 

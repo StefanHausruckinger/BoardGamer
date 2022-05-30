@@ -15,6 +15,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.ActionCodeSettings;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -109,10 +110,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     if(task.isSuccessful()){
                         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
-                       startActivity(new Intent(MainActivity.this, ProfileActivity.class));
-
-                        //SHA no email was sent
-/*
                         if(user.isEmailVerified()){
                             //redirect to user Profile
                             startActivity(new Intent(MainActivity.this, ProfileActivity.class));
@@ -120,7 +117,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             user.sendEmailVerification();
                             Toast.makeText(MainActivity.this, "Check your email to verify your account!", Toast.LENGTH_SHORT).show();
                         }
-*/
+
                     }else{
                         Toast.makeText(MainActivity.this, "Failed to login! Please check your credentials", Toast.LENGTH_SHORT).show();
                     }

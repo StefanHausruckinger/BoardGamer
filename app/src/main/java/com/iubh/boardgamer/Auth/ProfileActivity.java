@@ -20,6 +20,8 @@ import com.google.firebase.database.ValueEventListener;
 import com.iubh.boardgamer.MainActivity;
 import com.iubh.boardgamer.R;
 
+import java.util.Set;
+
 public class ProfileActivity extends AppCompatActivity {
 
     private FirebaseUser user;
@@ -49,7 +51,7 @@ public class ProfileActivity extends AppCompatActivity {
         reference = FirebaseDatabase.getInstance().getReference("Users");
         userID = user.getUid();
 
-        final TextView greetingTextView = (TextView) findViewById(R.id.greeting);
+        //final TextView greetingTextView = (TextView) findViewById(R.id.greeting);
         final TextView fullNameTextView = (TextView) findViewById(R.id.fullName);
         final TextView emailTextView = (TextView) findViewById(R.id.email);
 
@@ -62,9 +64,8 @@ public class ProfileActivity extends AppCompatActivity {
                     String fullName = userProfile.fullName;
                     String email = userProfile.email;
 
-                    greetingTextView.setText("Welcome");
-                    fullNameTextView.setText(fullName);
-                    emailTextView.setText(email);
+                 //   fullNameTextView.setText(fullName);
+                 //   emailTextView.setText(email);
                 }
             }
 
