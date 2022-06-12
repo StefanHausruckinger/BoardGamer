@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BoardGamer">
         <activity
+            android:name=".MainSiteActivity"
+            android:exported="false" />
+        <activity
+            android:name=".GroupChatActivity"
+            android:exported="false" />
+        <activity
             android:name=".test"
             android:exported="false" />
         <activity
