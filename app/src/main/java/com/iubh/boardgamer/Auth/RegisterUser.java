@@ -66,6 +66,8 @@ public class RegisterUser extends AppCompatActivity implements View.OnClickListe
         String email= editTextEmail.getText().toString().trim();
         String password=editTextPassword.getText().toString().trim();
         String fullName=editTextFullName.getText().toString().trim();
+        String group="update your Group";
+
 
         if(fullName.isEmpty()){
             editTextFullName.setError("Full name is required!");
@@ -104,7 +106,7 @@ public class RegisterUser extends AppCompatActivity implements View.OnClickListe
                     public void onComplete(@NonNull Task<AuthResult> task) {
 
                         if(task.isSuccessful()){
-                            User user = new User(fullName,email);
+                            User user = new User(fullName,email,group);
 
                             FirebaseDatabase.getInstance().getReference("Users")
                                     .child(FirebaseAuth.getInstance().getCurrentUser().getUid())

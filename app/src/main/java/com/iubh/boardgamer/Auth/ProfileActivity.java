@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -19,17 +20,24 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.iubh.boardgamer.MainActivity;
 import com.iubh.boardgamer.R;
+import com.iubh.boardgamer.Auth.User;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Set;
 
 public class ProfileActivity extends AppCompatActivity {
 
+
     private FirebaseUser user;
     private DatabaseReference reference;
     private String userID;
+    private EditText editTextnewGroupCode;
 
     private Button logout;
+    private Button updategroup;
 
+    private TextView fullNameTextView, emailTextView, groupTextview;
 
 
     @Override
@@ -38,6 +46,7 @@ public class ProfileActivity extends AppCompatActivity {
         setContentView(R.layout.activity_profile);
 
         logout = (Button) findViewById(R.id.signOut);
+        updategroup = (Button) findViewById(R.id.updateGroup);
 
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -47,25 +56,41 @@ public class ProfileActivity extends AppCompatActivity {
             }
         });
 
+
         user = FirebaseAuth.getInstance().getCurrentUser();
-        reference = FirebaseDatabase.getInstance().getReference("Users");
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("Users");
         userID = user.getUid();
 
-        //final TextView greetingTextView = (TextView) findViewById(R.id.greeting);
-        final TextView fullNameTextView = (TextView) findViewById(R.id.fullName);
-        final TextView emailTextView = (TextView) findViewById(R.id.email);
+        fullNameTextView = findViewById(R.id.fullNameTitle);
+        emailTextView = findViewById(R.id.emailAddressTitle);
+        groupTextview = findViewById(R.id.groupTitle);
 
-        reference.child(userID).addListenerForSingleValueEvent(new ValueEventListener() {
+        updategroup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                editTextnewGroupCode = (EditText) findViewById(R.id.newGroupCode);
+                String newGroupCode = editTextnewGroupCode.getText().toString().trim();
+
+                Map map = new HashMap();
+                map.put("group",newGroupCode);
+                reference.child(userID).updateChildren(map);
+
+            }
+        });
+
+        reference.child(userID).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 User userProfile = snapshot.getValue(User.class);
 
                 if(userProfile != null){
-                    String fullName = userProfile.fullName;
-                    String email = userProfile.email;
+                    String fullName = userProfile.getFullName();
+                    String email = userProfile.getEmail();
+                    String group = userProfile.getGroup();
 
-                 //   fullNameTextView.setText(fullName);
-                 //   emailTextView.setText(email);
+                    fullNameTextView.setText(fullName);
+                    emailTextView.setText(email);
+                    groupTextview.setText(group);
                 }
             }
 
@@ -74,5 +99,6 @@ public class ProfileActivity extends AppCompatActivity {
                 Toast.makeText(ProfileActivity.this, "Something wrong!", Toast.LENGTH_LONG).show();
             }
         });
+
     }
 }
