@@ -10,6 +10,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BoardGamer">
         <activity
+            android:name=".test"
+            android:exported="false" />
+        <activity
+            android:name=".Auth.ForgotPassword"
+            android:exported="false" />
+        <activity
+            android:name=".Auth.ProfileActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Auth.RegisterUser"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
