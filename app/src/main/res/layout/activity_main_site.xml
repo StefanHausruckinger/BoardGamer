@@ -68,9 +68,10 @@
         android:id="@+id/ratingBar"
         android:layout_width="242dp"
         android:layout_height="64dp"
-        android:layout_marginBottom="12dp"
+        android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toTopOf="@+id/toProfil"
-        tools:layout_editor_absoluteX="84dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/LastEvent"
@@ -99,7 +100,8 @@
         android:layout_marginTop="28dp"
         android:text="LastEventTitle"
         app:layout_constraintBottom_toTopOf="@+id/ratingBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/LastEvent"
-        app:layout_constraintVertical_bias="0.0"
-        tools:layout_editor_absoluteX="161dp" />
+        app:layout_constraintVertical_bias="0.0" />
 </androidx.constraintlayout.widget.ConstraintLayout>
