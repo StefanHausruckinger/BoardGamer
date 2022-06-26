@@ -2,7 +2,7 @@ package com.iubh.boardgamer.Auth;
 
 public class User {
 
-    public String fullName, email;
+    public String fullName, email, uid;
 
     public static String group;
 
@@ -27,7 +27,11 @@ public class User {
         return group;
     }
 
+    public String getUid(){return uid;}
 
 
-
+    public void setUid(String uid) { this.uid = uid;}
+    public void setGroup(String group){ this.group = group;}
+    public void setEmail(String email) { this.email = email;}
+    public void setFullName (String fullName){this.fullName = fullName;}
 }
