@@ -1,13 +1,17 @@
 package com.iubh.boardgamer.GroupChat;
 
+import static java.security.AccessController.getContext;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -36,12 +40,14 @@ public class GroupChatActivity extends AppCompatActivity implements View.OnClick
     private String userID;
     private DatabaseReference messagedb;
     private MessageAdapter messageAdapter;
+    LinearLayoutManager manager = new LinearLayoutManager(this);
     List<Message> messages;
     User u;
 
     private ImageButton send_txt;
     private EditText editTextInsertText;
     private RecyclerView rvMessage;
+    private Context context;
 
 
     @Override
@@ -65,7 +71,11 @@ public class GroupChatActivity extends AppCompatActivity implements View.OnClick
         send_txt = (ImageButton) findViewById(R.id.send_txt);
         send_txt.setOnClickListener(this);
         messages = new ArrayList<>();
+
+
+
     }
+
 
     @Override
     public void onClick(View view) {
@@ -81,6 +91,7 @@ public class GroupChatActivity extends AppCompatActivity implements View.OnClick
             Toast.makeText(getApplicationContext(), "You cannot send blank message!", Toast.LENGTH_SHORT).show();
         }
     }
+
 
     @Override
     protected void onStart(){
@@ -165,12 +176,12 @@ public class GroupChatActivity extends AppCompatActivity implements View.OnClick
 
             @Override
             public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-
+                displayMessages(messages);
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-
+                displayMessages(messages);
             }
         });
     }
@@ -182,10 +193,16 @@ public class GroupChatActivity extends AppCompatActivity implements View.OnClick
     }
 
     private void displayMessages(List<Message> messages) {
+
+        rvMessage.setLayoutManager(manager);
         rvMessage.setLayoutManager(new LinearLayoutManager(GroupChatActivity.this));
-        //rvMessage.setHasFixedSize(true);
-        messageAdapter = new MessageAdapter(GroupChatActivity.this.messages,messagedb);
-        rvMessage.setAdapter(messageAdapter);
+        rvMessage.setHasFixedSize(true);
+       if(getContext()!=null){
+           messageAdapter = new MessageAdapter(this.context,GroupChatActivity.this.messages,messagedb);
+           rvMessage.setAdapter(messageAdapter);
+       }
 
     }
+
+
 }

@@ -18,15 +18,16 @@ import com.iubh.boardgamer.GroupChat.Message;
 import com.iubh.boardgamer.GroupChat.Method;
 import com.iubh.boardgamer.R;
 
+
 import java.util.List;
 
 public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageAdapterViewHolder> {
 
-    Context context;
-    List<Message> messages;
-    DatabaseReference messageDb;
+    private Context context;
+    private List<Message> messages;
+    private DatabaseReference messageDb;
 
-    public MessageAdapter(List<Message> messages, DatabaseReference messageDb)
+    public MessageAdapter(Context context, List<Message> messages, DatabaseReference messageDb)
     {
         this.context = context;
         this.messageDb = messageDb;
@@ -36,7 +37,7 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageA
     @NonNull
     @Override
     public MessageAdapterViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.item_massage,parent,false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_massage,parent,false);
         return  new MessageAdapterViewHolder(view);
     }
 
