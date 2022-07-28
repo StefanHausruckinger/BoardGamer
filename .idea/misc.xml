@@ -4,6 +4,9 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/Stefan/AndroidStudioProjects/BoardGamer/app/src/main/res/drawable/ic_send.xml" value="0.314" />
+        <entry key="..\:/Users/Stefan/AndroidStudioProjects/BoardGamer/app/src/main/res/layout/activity_add_event.xml" value="0.29030797101449274" />
+        <entry key="..\:/Users/Stefan/AndroidStudioProjects/BoardGamer/app/src/main/res/layout/activity_edit_event.xml" value="0.29030797101449274" />
+        <entry key="..\:/Users/Stefan/AndroidStudioProjects/BoardGamer/app/src/main/res/layout/activity_events.xml" value="0.29030797101449274" />
         <entry key="..\:/Users/Stefan/AndroidStudioProjects/BoardGamer/app/src/main/res/layout/activity_forgot_password.xml" value="0.31979166666666664" />
         <entry key="..\:/Users/Stefan/AndroidStudioProjects/BoardGamer/app/src/main/res/layout/activity_group_chat.xml" value="0.31979166666666664" />
         <entry key="..\:/Users/Stefan/AndroidStudioProjects/BoardGamer/app/src/main/res/layout/activity_main.xml" value="0.26268115942028986" />
@@ -11,6 +14,9 @@
         <entry key="..\:/Users/Stefan/AndroidStudioProjects/BoardGamer/app/src/main/res/layout/activity_profile.xml" value="0.31927083333333334" />
         <entry key="..\:/Users/Stefan/AndroidStudioProjects/BoardGamer/app/src/main/res/layout/activity_register_user.xml" value="0.26268115942028986" />
         <entry key="..\:/Users/Stefan/AndroidStudioProjects/BoardGamer/app/src/main/res/layout/activity_test.xml" value="0.15552178318135765" />
+        <entry key="..\:/Users/Stefan/AndroidStudioProjects/BoardGamer/app/src/main/res/layout/fragment_events.xml" value="0.29030797101449274" />
+        <entry key="..\:/Users/Stefan/AndroidStudioProjects/BoardGamer/app/src/main/res/layout/fragment_events_row.xml" value="0.29030797101449274" />
+        <entry key="..\:/Users/Stefan/AndroidStudioProjects/BoardGamer/app/src/main/res/layout/item_events.xml" value="0.29030797101449274" />
         <entry key="..\:/Users/Stefan/AndroidStudioProjects/BoardGamer/app/src/main/res/layout/item_massage.xml" value="0.4854014598540146" />
       </map>
     </option>
